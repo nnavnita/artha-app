@@ -12,7 +12,7 @@ import { ColorSchemeName, Pressable } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import InstructionsScreen from '../screens/InstructionsScreen';
+import SearchScreen from '../screens/SearchScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import MainScreen from '../screens/MainScreen';
 import HistoryScreen from '../screens/HistoryScreen';
@@ -37,7 +37,7 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Instructions" component={InstructionsScreen} />
+        <Stack.Screen name="Search" component={SearchScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -66,14 +66,14 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate('Instructions')}
+              onPress={() => navigation.navigate('Search')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}>
               <FontAwesome
                 name="info-circle"
-                size={20}
-                color="grey"
+                size={25}
+                color={Colors[colorScheme].text}
                 style={{ marginRight: 15 }}
               />
             </Pressable>
@@ -84,8 +84,8 @@ function BottomTabNavigator() {
         name="History"
         component={HistoryScreen}
         options={{
-          title: 'History',
-          tabBarIcon: ({ color }) => <TabBarIcon name="history" color={color} />,
+          title: 'Tab Two',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
     </BottomTab.Navigator>

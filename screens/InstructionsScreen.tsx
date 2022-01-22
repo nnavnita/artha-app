@@ -1,17 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
+import MainScreenInfo from '../components/MainScreenInfo';
 import { Text, View } from '../components/Themed';
 
-export default function ModalScreen() {
+export default function InstructionsScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
+      <Text style={styles.title}>Instructions</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/ModalScreen.tsx" />
+      <MainScreenInfo path="/screens/InstructionsScreen.tsx" />
 
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
+      {/* Use a light status bar on iOS to account for the black space above the Instructions */}
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
     </View>
   );
